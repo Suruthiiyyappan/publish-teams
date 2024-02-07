@@ -32,7 +32,7 @@ jobs:
       # Provision resources.
       - uses: OfficeDev/teamsfx-cli-action@v1
         with:
-          commands: provision
+          commands: package
           #subscription: ${{secrets.AZURE_SUBSCRIPTION_ID}}
           env: ${{env.TEAMSFX_ENV_NAME}}
     
