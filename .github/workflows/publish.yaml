@@ -16,8 +16,12 @@ jobs:
       # To specify the env name for multi-env feature.
       TEAMSFX_ENV_NAME: dev
     steps:
-      - name: Print new build number
-        run: teamsfx config set interactive false
+      - name: Npm-install 
+        run: |
+        
+          npm install @microsoft/teamsfx-cli@
+          teamsfx config set interactive false
+
 
       # Login Azure by service principal 
       - uses: OfficeDev/teamsfx-cli-action@v1
