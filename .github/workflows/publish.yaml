@@ -19,7 +19,7 @@ jobs:
       - name: Npm-install 
         run: |
         
-          npm install @microsoft/teamsfx-cli@
+          npm install -g @microsoft/teamsfx-cli
           teamsfx config set interactive false
 
 
