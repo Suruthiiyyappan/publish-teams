@@ -20,17 +20,18 @@ jobs:
         run: |
         
           npm install -g @microsoft/teamsfx-cli
-          teamsfx config set interactive false
-
+      - name: az-login 
+        run: |
+          az login --service-principal -u 750ac5c1-e4a6-4b0d-9a8c-dd630c940869 -p A7~8Q~-IgNarVqj3twIJseEzqC7ssEHWJlFoQa2- --tenant 62edfd41-1282-4e35-b9da-c6a75c0b31a9
 
       # Login Azure by service principal 
-      - uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          commands: account login azure 
-          service-principal: true
-          username: 750ac5c1-e4a6-4b0d-9a8c-dd630c940869
-          password: A7~8Q~-IgNarVqj3twIJseEzqC7ssEHWJlFoQa2-
-          tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+      # - uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     commands: account login azure 
+      #     service-principal: true
+      #     username: 750ac5c1-e4a6-4b0d-9a8c-dd630c940869
+      #     password: A7~8Q~-IgNarVqj3twIJseEzqC7ssEHWJlFoQa2-
+      #     tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
  
       # Provision resources.
       - uses: OfficeDev/teamsfx-cli-action@v1
