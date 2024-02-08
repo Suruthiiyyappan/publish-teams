@@ -1,9 +1,12 @@
 # This is just an example workflow for provision.
 # You should customize it to meet your own requirements.
 name: 'Provision'
+
 on:
+  push:
+    branches:
+      - main
   # Manually trigger this workflow, and you should pick the right branch.
-  workflow_dispatch:
 jobs:
   provision:
     runs-on: ubuntu-latest
