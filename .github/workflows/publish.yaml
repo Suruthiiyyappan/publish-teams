@@ -8,7 +8,7 @@ on:
       - main
   # Manually trigger this workflow, and you should pick the right branch.
 jobs:
-  provision:
+  publishTeamsApp:
     runs-on: ubuntu-latest
     # You can uncomment the line below to use environments (refer to https://docs.github.com/en/actions/reference/environments). 
     #environment: test_environment
@@ -42,9 +42,9 @@ jobs:
       #     username: a1297e34-9ef0-4030-a16e-24d95d964f2a
       #     password: Gil8Q~I1YKpF_gEHCrGwSSnCrGD8YYqBx.YG8awD
       #     tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
-    - name: 'Az CLI login'
-      uses: azure/login@v1
-      with:
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
           client-id: 5bddeabc-cf83-4b05-9ae7-2496be0af7f6
           tenant-id: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
           subscription-id: 8da5ea31-eccb-4d99-8a1a-437ea5504220
