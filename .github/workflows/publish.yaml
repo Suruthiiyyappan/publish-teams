@@ -18,12 +18,12 @@ jobs:
     steps:
       - name: Npm-install 
         run: |
-        
           npm install -g @microsoft/teamsfx-cli
       - name: az-login 
         run: az login --service-principal -u 750ac5c1-e4a6-4b0d-9a8c-dd630c940869 -p A7~8Q~-IgNarVqj3twIJseEzqC7ssEHWJlFoQa2- --tenant 62edfd41-1282-4e35-b9da-c6a75c0b31a9
         continue-on-error: true
-
+      - name: az-login 
+        run: teamsfx publish
       # Login Azure by service principal 
       # - uses: OfficeDev/teamsfx-cli-action@v1
       #   with:
@@ -34,20 +34,20 @@ jobs:
       #     tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
  
       # Provision resources.
-      - uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          commands: package
-          #subscription: ${{secrets.AZURE_SUBSCRIPTION_ID}}
-          env: ${{env.TEAMSFX_ENV_NAME}}
+      # - uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     commands: package
+      #     #subscription: ${{secrets.AZURE_SUBSCRIPTION_ID}}
+      #     env: ${{env.TEAMSFX_ENV_NAME}}
     
-      # Deploy the code.
-      - uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          commands: deploy
-          env: ${{env.TEAMSFX_ENV_NAME}}
+      # # Deploy the code.
+      # - uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     commands: deploy
+      #     env: ${{env.TEAMSFX_ENV_NAME}}
 
       # Publish the Teams App.
-      - uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          commands: publish
-          env: ${{env.TEAMSFX_ENV_NAME}}
+      # - uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     commands: publish
+      #     env: ${{env.TEAMSFX_ENV_NAME}}
