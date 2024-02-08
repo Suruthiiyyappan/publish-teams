@@ -23,7 +23,7 @@ jobs:
         run: az login --service-principal -u 750ac5c1-e4a6-4b0d-9a8c-dd630c940869 -p A7~8Q~-IgNarVqj3twIJseEzqC7ssEHWJlFoQa2- --tenant 62edfd41-1282-4e35-b9da-c6a75c0b31a9
         continue-on-error: true
       - name: az-login 
-        run: teamsfx publish --env dev
+        run: teamsapp publish --env dev
       # Login Azure by service principal 
       # - uses: OfficeDev/teamsfx-cli-action@v1
       #   with:
