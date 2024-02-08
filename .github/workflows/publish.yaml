@@ -39,8 +39,8 @@ jobs:
           cli-version: ${{env.TEAMSFX_CLI_VERSION}}
           commands: account login azure 
           service-principal: true
-          username: 750ac5c1-e4a6-4b0d-9a8c-dd630c940869
-          password: A7~8Q~-IgNarVqj3twIJseEzqC7ssEHWJlFoQa2
+          username: a1297e34-9ef0-4030-a16e-24d95d964f2a
+          password: Gil8Q~I1YKpF_gEHCrGwSSnCrGD8YYqBx.YG8awD
           tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
       # We suggest to do the `teamsfx provision` step manually or in a separate workflow. The following steps are for your reference.
       # After provisioning, you should commit necessary files into the repository.
