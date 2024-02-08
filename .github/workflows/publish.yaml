@@ -45,9 +45,9 @@ jobs:
     - name: 'Az CLI login'
       uses: azure/login@v1
       with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: 5bddeabc-cf83-4b05-9ae7-2496be0af7f6
+          tenant-id: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+          subscription-id: 8da5ea31-eccb-4d99-8a1a-437ea5504220
       # We suggest to do the `teamsfx provision` step manually or in a separate workflow. The following steps are for your reference.
       # After provisioning, you should commit necessary files into the repository.
       - name: Provision hosting environment
@@ -64,11 +64,11 @@ jobs:
           commands: package
           env: dev
 
-      - name: Upload Teams App's package as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: appPackage
-          path: appPackage/build/appPackage.dev.zip
+      # - name: Upload Teams App's package as artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: appPackage
+      #     path: appPackage/build/appPackage.dev.zip
 
       - name: Publish Teams App
         uses: OfficeDev/teamsfx-cli-action@v1
