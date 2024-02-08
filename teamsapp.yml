@@ -210,15 +210,15 @@ publish:
     with:
       # Relative path to this file. This is the path for built zip file.
       appPackagePath: ./appPackage/build/appPackage.dev.zip
-  # Publish the app to
-  # Teams Admin Center (https://admin.teams.microsoft.com/policies/manage-apps)
-  # for review and approval
-  #   - uses: teamsApp/publishAppPackage
-  #     with:
-  #       appPackagePath: ./appPackage/build/appPackage.${{TEAMSFX_ENV}}.zip
-  #     # Write the information of created resources into environment file for
-  #     # the specified environment variable(s).
-  #     writeToEnvironmentFile:
-  #       publishedAppId: TEAMS_APP_PUBLISHED_APP_ID
-  # projectId: a4ae4ce8-35ae-470b-a190-4e1ef075282c
+  Publish the app to
+  Teams Admin Center (https://admin.teams.microsoft.com/policies/manage-apps)
+  for review and approval
+    - uses: teamsApp/publishAppPackage
+      with:
+        appPackagePath: ./appPackage/build/appPackage.dev.zip
+      # Write the information of created resources into environment file for
+      # the specified environment variable(s).
+      writeToEnvironmentFile:
+        publishedAppId: TEAMS_APP_PUBLISHED_APP_ID
+  projectId: a4ae4ce8-35ae-470b-a190-4e1ef075282c
 projectId: 9333ad81-1b62-43a5-aa4b-6da942feb453
