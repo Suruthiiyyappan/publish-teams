@@ -33,15 +33,21 @@ jobs:
 
       # Login Azure by service principal.
       # Service principal for Azure is used, and to create Azure service principal for use, refer to https://github.com/OfficeDev/TeamsFx/tree/dev/docs/cicd_insider#how-to-create-azure-service-principals-for-use.
-      - name: Login Azure by service principal 
-        uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          cli-version: ${{env.TEAMSFX_CLI_VERSION}}
-          commands: account login azure 
-          service-principal: true
-          username: a1297e34-9ef0-4030-a16e-24d95d964f2a
-          password: Gil8Q~I1YKpF_gEHCrGwSSnCrGD8YYqBx.YG8awD
-          tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+      # - name: Login Azure by service principal 
+      #   uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     cli-version: ${{env.TEAMSFX_CLI_VERSION}}
+      #     commands: account login azure 
+      #     service-principal: true
+      #     username: a1297e34-9ef0-4030-a16e-24d95d964f2a
+      #     password: Gil8Q~I1YKpF_gEHCrGwSSnCrGD8YYqBx.YG8awD
+      #     tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+    - name: 'Az CLI login'
+      uses: azure/login@v1
+      with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       # We suggest to do the `teamsfx provision` step manually or in a separate workflow. The following steps are for your reference.
       # After provisioning, you should commit necessary files into the repository.
       - name: Provision hosting environment
