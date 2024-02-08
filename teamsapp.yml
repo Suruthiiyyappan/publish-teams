@@ -196,20 +196,20 @@ publish:
     with:
       # Path to manifest template
       manifestPath: ./appPackage/manifest.json
-      outputZipPath: ./appPackage/build/appPackage.${{TEAMSFX_ENV}}.zip
-      outputJsonPath: ./appPackage/build/manifest.${{TEAMSFX_ENV}}.json
+      outputZipPath: ./appPackage/build/appPackage.dev.zip
+      outputJsonPath: ./appPackage/build/manifest.dev.json
   # Validate app package using validation rules
   - uses: teamsApp/validateAppPackage
     with:
       # Relative path to this file. This is the path for built zip file.
-      appPackagePath: ./appPackage/build/appPackage.${{TEAMSFX_ENV}}.zip
+      appPackagePath: ./appPackage/build/appPackage.dev.zip
   # Apply the Teams app manifest to an existing Teams app in
   # Teams Developer Portal.
   # Will use the app id in manifest file to determine which Teams app to update.
   - uses: teamsApp/update
     with:
       # Relative path to this file. This is the path for built zip file.
-      appPackagePath: ./appPackage/build/appPackage.${{TEAMSFX_ENV}}.zip
+      appPackagePath: ./appPackage/build/appPackage.dev.zip
   # Publish the app to
   # Teams Admin Center (https://admin.teams.microsoft.com/policies/manage-apps)
   # for review and approval
