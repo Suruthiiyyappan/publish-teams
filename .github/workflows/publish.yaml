@@ -53,7 +53,7 @@ jobs:
       - name: Run Script
         run: |
           npm install @microsoft/teamsfx
-          az login --service-principal -u 2e6c4319-2591-48f0-9176-c69f7599176d -p Imy8Q~QOyp.Z3Ai.-~mCb3cc-EupQZIcCIlmpab~ -t 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+          az login 
           az login --allow-no-subscriptions
           teamsfx provision --interactive false
         continue-on-error: true
