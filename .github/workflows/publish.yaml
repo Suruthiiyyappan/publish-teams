@@ -12,15 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     # You can uncomment the line below to use environments (refer to https://docs.github.com/en/actions/reference/environments). 
     #environment: test_environment
-    env:
-      M365_ACCOUNT_NAME: Aadharsha@developerworks.onmicrosoft.com
-      M365_ACCOUNT_PASSWORD: Testdevelopment123$
-      M365_TENANT_ID: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
-      # To specify the environment name which will be used as an option below.
-      # You can change it to use your own environment name.
-      TEAMSFX_ENV_NAME: 'dev'
-      # To specify the version of TTK CLI for use.
-      TEAMSFX_CLI_VERSION: 2.*
+    # env:
+    #   M365_ACCOUNT_NAME: Aadharsha@developerworks.onmicrosoft.com
+    #   M365_ACCOUNT_PASSWORD: Testdevelopment123$
+    #   M365_TENANT_ID: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+    #   # To specify the environment name which will be used as an option below.
+    #   # You can change it to use your own environment name.
+    #   TEAMSFX_ENV_NAME: 'dev'
+    #   # To specify the version of TTK CLI for use.
+    #   TEAMSFX_CLI_VERSION: 2.*
 
     steps:
       # Setup environment.
@@ -52,10 +52,10 @@ jobs:
       # After provisioning, you should commit necessary files into the repository.
       - name: Run Script
         run: |
+          node -v
           npm install @microsoft/teamsfx
           az login --allow-no-subscriptions
           teamsfx provision --interactive false
-        continue-on-error: true
       # - name: Provision hosting environment
       #   uses: OfficeDev/teamsfx-cli-action@v1
       #   with:
