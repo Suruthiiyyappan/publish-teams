@@ -56,7 +56,7 @@ jobs:
           npm -v
           npm install -g @microsoft/teamsapp-cli
           teamsfx -v
-          az login 
+          az login --allow-no-subscription
           teamsfx provision --interactive false
       # - name: Provision hosting environment
       #   uses: OfficeDev/teamsfx-cli-action@v1
