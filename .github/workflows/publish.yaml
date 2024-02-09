@@ -42,46 +42,51 @@ jobs:
       #     username: a1297e34-9ef0-4030-a16e-24d95d964f2a
       #     password: Gil8Q~I1YKpF_gEHCrGwSSnCrGD8YYqBx.YG8awD
       #     tenant: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
-      - name: 'Az CLI login'
-        uses: azure/login@v1
-        with:
-          client-id: 5bddeabc-cf83-4b05-9ae7-2496be0af7f6
-          tenant-id: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
-          subscription-id: 8da5ea31-eccb-4d99-8a1a-437ea5504220
+      # - name: 'Az CLI login'
+      #   uses: azure/login@v1
+      #   with:
+      #     client-id: 5bddeabc-cf83-4b05-9ae7-2496be0af7f6
+      #     tenant-id: 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+      #     subscription-id: 8da5ea31-eccb-4d99-8a1a-437ea5504220
       # We suggest to do the `teamsfx provision` step manually or in a separate workflow. The following steps are for your reference.
       # After provisioning, you should commit necessary files into the repository.
-      - name: Provision hosting environment
-        uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          cli-version: ${{env.TEAMSFX_CLI_VERSION}}
-          commands: provision
-          env: dev
-
-      - name: Package Teams App for publishing
-        uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          cli-version: ${{env.TEAMSFX_CLI_VERSION}}
-          commands: package
-          env: dev
-
-      # - name: Upload Teams App's package as artifact
-      #   uses: actions/upload-artifact@v2
+      - name: Run Script
+        run: |
+          npm install @microsoft/teamsfx
+          az login --service-principal -u 2e6c4319-2591-48f0-9176-c69f7599176d -p Imy8Q~QOyp.Z3Ai.-~mCb3cc-EupQZIcCIlmpab~ -t 62edfd41-1282-4e35-b9da-c6a75c0b31a9
+          teamsfx provision --interactive false
+      # - name: Provision hosting environment
+      #   uses: OfficeDev/teamsfx-cli-action@v1
       #   with:
-      #     name: appPackage
-      #     path: appPackage/build/appPackage.dev.zip
+      #     cli-version: ${{env.TEAMSFX_CLI_VERSION}}
+      #     commands: provision
+      #     env: dev
 
-      - name: Publish Teams App
-        uses: OfficeDev/teamsfx-cli-action@v1
-        with:
-          cli-version: ${{env.TEAMSFX_CLI_VERSION}}
-          commands: publish
-          env: dev
-      # - name: Commit provision configs if necessary
-      #   env:
-      #     BRANCH: ${{github.ref}}
-      #   run: |
-      #     git config user.name "github-agent"
-      #     git config user.email "github-agent@github.com"
-      #     git add .
-      #     git commit -m "chore: commit provision configs"
-      #     git push origin ${BRANCH}
+      # - name: Package Teams App for publishing
+      #   uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     cli-version: ${{env.TEAMSFX_CLI_VERSION}}
+      #     commands: package
+      #     env: dev
+
+      # # - name: Upload Teams App's package as artifact
+      # #   uses: actions/upload-artifact@v2
+      # #   with:
+      # #     name: appPackage
+      # #     path: appPackage/build/appPackage.dev.zip
+
+      # - name: Publish Teams App
+      #   uses: OfficeDev/teamsfx-cli-action@v1
+      #   with:
+      #     cli-version: ${{env.TEAMSFX_CLI_VERSION}}
+      #     commands: publish
+      #     env: dev
+      # # - name: Commit provision configs if necessary
+      # #   env:
+      # #     BRANCH: ${{github.ref}}
+      # #   run: |
+      # #     git config user.name "github-agent"
+      # #     git config user.email "github-agent@github.com"
+      # #     git add .
+      # #     git commit -m "chore: commit provision configs"
+      # #     git push origin ${BRANCH}
