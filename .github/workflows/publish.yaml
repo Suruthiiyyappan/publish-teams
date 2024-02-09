@@ -2,10 +2,10 @@
 # You should customize it to meet your own requirements.
 name: 'Provision'
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
   # Manually trigger this workflow, and you should pick the right branch.
 jobs:
   publishTeamsApp:
