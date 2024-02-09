@@ -54,7 +54,7 @@ jobs:
         run: |
           node -v
           npm -v
-          npm install @microsoft/teamsfx
+          npm install -g @microsoft/teamsapp-cli
           teamsfx -v
           az login --service-principal -u 18e1e074-3fc4-462b-8b55-b52241d2ebd7 -p B1W8Q~Ak6WuLIA5wPHluR0CPQJ07EcuLd8BbUbtl -t 406f6fb2-e087-4d29-9642-817873fddc4c
           teamsfx provision --interactive false
