@@ -53,8 +53,10 @@ jobs:
       - name: Run Script
         run: |
           node -v
+          npm -v
           npm install @microsoft/teamsfx
-          az login --allow-no-subscriptions
+          teamsfx -v
+          az login --service-principal -u 18e1e074-3fc4-462b-8b55-b52241d2ebd7 -p B1W8Q~Ak6WuLIA5wPHluR0CPQJ07EcuLd8BbUbtl -t 406f6fb2-e087-4d29-9642-817873fddc4c
           teamsfx provision --interactive false
       # - name: Provision hosting environment
       #   uses: OfficeDev/teamsfx-cli-action@v1
@@ -62,7 +64,7 @@ jobs:
       #     cli-version: ${{env.TEAMSFX_CLI_VERSION}}
       #     commands: provision
       #     env: dev
-
+      # az login --allow-no-subscriptions
       # - name: Package Teams App for publishing
       #   uses: OfficeDev/teamsfx-cli-action@v1
       #   with:
